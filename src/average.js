@@ -12,8 +12,20 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // add your implementation here
+/** Ref: https://www.devmedia.com.br/arredondando-numeros-em-java/28248 */
+
+const average = (array) => {
+  let soma = 0;
+  if (array.length === 0) {
+    return undefined;
+  } // verificação se o array for vazio
+  for (let index = 0; index < array.length; index += 1) {
+    soma += array[index]; // soma de todos os números do array
+    if (typeof array[index] !== 'number') {
+      return undefined;
+    } // verificação se é do tipo number
+  } 
+  return Math.round(soma / array.length);
 };
 
 module.exports = average;
